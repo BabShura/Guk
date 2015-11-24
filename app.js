@@ -6,9 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Slack = require('node-slack');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -25,10 +22,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-slack = new Slack(ENVIRONMENT_URL_THINGY)
+slack = new Slack(process.env.HOOK_URL);
 
 
-app.use('/', routes);
+app.use('/', require('./routes/'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
