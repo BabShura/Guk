@@ -14,7 +14,7 @@ router.route('/slack')
     console.log(command);
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
-        console.log("ON CHAMP")
+        console.log("ON CHAMP", command)
         var saybot = require('../League/champ').saybot;
 
     }

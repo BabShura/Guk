@@ -13,10 +13,11 @@ console.log("IN CHAMP JS", command)
 //
 //     }
 
-    saybot = {
+module.exports = {
+
+    saybot : {
         "text": "Champ Info"
         "username": "LoL-champ"
         "icon_emoji": ":champ:"
     }
-
-module.exports = saybot;
+}
