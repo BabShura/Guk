@@ -39,13 +39,14 @@ console.log("IN CHAMP JS", command)
         basic_info = {
             "fallback": "Basic champ information",
             "title": "Basic information",
+            "text": ""
 
         }
 
         spells_info = {
             "fallback": "Champ Spells",
             "title": "Spells",
-
+            "text": ""
 
         }
 
@@ -53,8 +54,8 @@ console.log("IN CHAMP JS", command)
     champ_data : {
         "text": "Champ Info",
         "username": "LoL-champ",
-        "icon_emoji": ":champ:",
-        "attachments": []
+        "icon_emoji": ":champ:"
+        // "attachments": []
     }
 
 module.exports = {
