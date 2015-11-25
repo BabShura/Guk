@@ -8,9 +8,9 @@ router.route('/')
 
 router.route('/slack')
 .post( (req, res, next) => {
-    trigger = req.body.trigger_word
-    command = req.body.text
-    command.replace(trigger ,'').trim().split(' ') //condense the call to an array of strings
+    trigger = req.body.trigger_word;
+    command_str = req.body.text;
+    command = command_str.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
     console.log(req.body)
     console.log(command)
 
@@ -32,6 +32,11 @@ router.route('/slack')
         }
     }
     else if (command[0].toLowerCase() === "item") {
+        var saybot = {
+            text: "Testing item"
+        }
+    }
+    else if (command[0].toLowerCase() === "summoner") {
         var saybot = {
             text: "Testing item"
         }
