@@ -45,7 +45,7 @@ router.route('/slack')
     else {
         var saybot = {
             "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
-            "username": "LoL-botsy"
+            "username": "LoL-botsy",
             "icon_emoji": ":dustu_stick:"
         }
     }

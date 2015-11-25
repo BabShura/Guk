@@ -16,8 +16,8 @@ console.log("IN CHAMP JS", command)
 module.exports = {
 
     saybot : {
-        "text": "Champ Info"
-        "username": "LoL-champ"
+        "text": "Champ Info",
+        "username": "LoL-champ",
         "icon_emoji": ":champ:"
     }
 }
