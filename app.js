@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var Slack = require('node-slack');
 
 var app = express();
 
@@ -15,10 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-slack = new Slack(process.env.HOOK_URL);
 
 
 app.use('/', require('./routes/'));

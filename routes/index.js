@@ -11,10 +11,9 @@ router.route('/slack')
     trigger = req.body.trigger_word;
     command_str = req.body.text;
     command = command_str.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
-    console.log(req.body)
-    console.log(command)
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
+        var champ = require('/League/champ')(command[1], command[2] || 0);
         var saybot = {
             text: "Testing champion"
         }
@@ -22,34 +21,31 @@ router.route('/slack')
     }
     else if (command[0].toLowerCase() === "monster") {
         var saybot = {
-            text: "Testing monster"
+            text: "The RITO API has no data on minions or neutral monsters. Go to <forum link> to discuss and let RITO know we care."
         }
 
     }
     else if (command[0].toLowerCase() === "map") {
         var saybot = {
-            text: "Testing map"
+            text: "The RITO API has no data on Map resources (turrets, inhibitors). Go to <forum link> to discuss and let RITO know we care."
         }
     }
     else if (command[0].toLowerCase() === "item") {
         var saybot = {
-            text: "Testing item"
+            text: "The RITO API does not serve data on individual Items. Making this a very exahustive computation. Go to <forum link> to discuss and let RITO know we care."
         }
     }
     else if (command[0].toLowerCase() === "summoner") {
+        var summoner = require('summoner')(command[1]);
         var saybot = {
             text: "Testing item"
         }
     }
     else {
-        var saybot = slack.respond(req.body, (hook)=>{
-            // Do stuff here
-            console.log(hook);
-            return {
-                "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
-                "username": "LoL-botsy"
-            }
-        })
+        var saybot = {
+            "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
+            "username": "LoL-botsy"
+        }
     }
 
     res.json(saybot);
