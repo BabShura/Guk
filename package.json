@@ -3,8 +3,9 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "DEBUG=* node ./bin/www",
-        "startw": "DEBUG=* & nodemon ./bin/www"
+        "start": "node ./bin/www",
+        "startn": "DEBUG=* nodemon ./bin/www",
+        "startnw": "DEBUG=* & nodemon ./bin/www"
     },
     "dependencies": {
         "body-parser": "~1.13.2",
