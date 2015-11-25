@@ -1,12 +1,9 @@
-exports.saybot = (command) => {
+
     console.log("IN CHAMP JS", command)
     var name = command[1];
     var skin = command[2] || '0';
     league_v = http.get("https://ddragon.leagueoflegends.com/realms/na.json")
     console.log(league_v)
-
-
-
 
     champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + league_v + "/data/en_US/champion/" + name + ".json")
 
@@ -23,6 +20,4 @@ exports.saybot = (command) => {
         "icon_emoji": ":champ:"
     }
 
-
-    return saybot
-}
+module.exports = saybot;
