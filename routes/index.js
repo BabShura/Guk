@@ -8,17 +8,33 @@ router.route('/')
 
 router.route('/slack')
 .post( (req, res, next) => {
-    console.log("on /slack")
-    console.log(req.body)
+    trigger = req.body.tirgger_word
+    command = req.body.text
+    command.replace(trigger ,'').trim().split(' ') //condense the call to an array of strings
 
-    var saybot = slack.respond(req.body, (hook)=>{
-        // Do stuff here
-        console.log(hook);
-        return {
-            "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
-            "username": "LoL-botsy"
-        }
-    })
+    if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
+
+    }
+    else if (command[0].toLowerCase() === "monster") {
+
+    }
+    else if (command[0].toLowerCase() === "map") {
+
+    }
+    else if (command[0].toLowerCase() === "item") {
+
+    }
+    else {
+        var saybot = slack.respond(req.body, (hook)=>{
+            // Do stuff here
+            console.log(hook);
+            return {
+                "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
+                "username": "LoL-botsy"
+            }
+        })
+    }
+
     res.json(saybot);
 })
 
