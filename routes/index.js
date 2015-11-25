@@ -11,12 +11,9 @@ router.route('/slack')
     trigger = req.body.trigger_word;
     command_str = req.body.text;
     command = command_str.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
-    console.log(command);
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
-        console.log("ON CHAMP", command)
         var saybot = require('../League/champ').saybot;
-
     }
     else if (command[0].toLowerCase() === "monster") {
         var saybot = {
@@ -44,14 +41,13 @@ router.route('/slack')
     }
     else {
         var saybot = {
-            "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
+            "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters./nKeywords include (desc): champion/champ, item, map, summoner, monster",
             "username": "LoL-botsy",
-            "icon_emoji": ":dustu_stick:"
+            "icon_emoji": ":dusty_stick:"
         }
     }
 
     //Sending back the json message
-    console.log("Responding.")
     res.json(saybot);
 })
 
