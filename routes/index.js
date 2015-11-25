@@ -11,20 +11,21 @@ router.route('/slack')
     trigger = req.body.tirgger_word
     command = req.body.text
     command.replace(trigger ,'').trim().split(' ') //condense the call to an array of strings
+    console.log(command)
 
-    if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
+    if(command[0].toLowerCase() == "champion" || command[0].toLowerCase() == "champ"){
             text: "Testing champ"
     }
-    else if (command[0].toLowerCase() === "monster") {
+    else if (command[0].toLowerCase() == "monster") {
             text: "Testing monster"
     }
-    else if (command[0].toLowerCase() === "map") {
+    else if (command[0].toLowerCase() == "map") {
         var saybot = {
             text: "Testing map"
         }
 
     }
-    else if (command[0].toLowerCase() === "item") {
+    else if (command[0].toLowerCase() == "item") {
             text: "Testing item"
     }
     else {
