@@ -8,7 +8,7 @@ router.route('/')
 
 router.route('/slack')
 .post( (req, res, next) => {
-    slack.respond(req.body, (hook)=>{
+    let saybot = slack.respond(req.body, (hook)=>{
         // Do stuff here
         console.log(hook);
         return {
@@ -16,6 +16,7 @@ router.route('/slack')
             "username": "LoL-botsy"
         }
     })
+    res.json(saybot);
 })
 
 module.exports = router;
