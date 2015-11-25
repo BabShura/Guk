@@ -36,10 +36,10 @@ champ.img.links = {
 // }
 
 basic_info = {
-}
     "fallback": "Basic champ information",
     "title": "Basic information",
     "text": ""
+}
 
 
 spells_info = {
@@ -58,5 +58,5 @@ champ_data = {
 }
 
 module.exports = {
-    champ : champ_data
+    "champ": champ_data
 }
