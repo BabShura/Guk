@@ -25,13 +25,15 @@ router.route('/slack')
 
     }
     else if (command[0].toLowerCase() === "map") {
+
         var saybot = {
             text: "The RITO API has no data on Map resources (turrets, inhibitors). Go to <forum link> to discuss and let RITO know we care."
         }
     }
     else if (command[0].toLowerCase() === "item") {
+        var hold = require('../League/item').hold;
         var saybot = {
-            text: "The RITO API does not serve data on individual Items. Making this a very exahustive computation. Go to <forum link> to discuss and let RITO know we care."
+            text: "The RITO API does not serve data on individual Items. Making this a very exhaustive computation. Go to <forum link> to discuss and let RITO know we care." + hold
         }
     }
     else if (command[0].toLowerCase() === "summoner") {
