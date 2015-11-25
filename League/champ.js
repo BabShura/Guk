@@ -54,7 +54,7 @@ console.log("IN CHAMP JS", command)
     champ_data : {
         "text": "Champ Info",
         "username": "LoL-champ",
-        "icon_emoji": ":champ:"
+        "icon_emoji": ":champ:",
         "attachments": []
     }
 
