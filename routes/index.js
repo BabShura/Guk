@@ -11,6 +11,7 @@ router.route('/slack')
     trigger = req.body.trigger_word;
     command_str = req.body.text;
     command = command_str.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
+    console.logZ(command);
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
         var saybot = require('../League/champ.js')(command[1], command[2] || 0);
