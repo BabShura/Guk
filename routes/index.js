@@ -14,7 +14,7 @@ router.route('/slack')
     console.log(command);
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
-        var saybot = require('../League/champ.js')(command[1], command[2] || 0);
+        var saybot = require('../League/champ.js')(command[1], command[2] || '0');
 
     }
     else if (command[0].toLowerCase() === "monster") {
