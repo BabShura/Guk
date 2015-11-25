@@ -39,13 +39,14 @@ router.route('/slack')
     else if (command[0].toLowerCase() === "summoner") {
         var summoner = require('../League/summoner')(command[1]);
         var saybot = {
-            text: "Testing item"
+            "text": "Testing item"
         }
     }
     else {
         var saybot = {
             "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
             "username": "LoL-botsy"
+            "icon_emoji": ":dustu_stick:"
         }
     }
 
