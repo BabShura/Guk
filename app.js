@@ -48,7 +48,7 @@ app.use(function(err, req, res, next) {
   //   error: {}
   // });
   res.json({"text":"Oops! The application failed to process your request."})
-  console.log(err)
+  console.log("Error: ", err)
 });
 
 
