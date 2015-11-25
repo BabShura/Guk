@@ -1,3 +1,5 @@
+var http = require('http');
+
 var name = command[1];
 var skin = command[2] || '0';
 league_v = http.get("https://ddragon.leagueoflegends.com/realms/na.json")
