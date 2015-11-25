@@ -13,10 +13,7 @@ router.route('/slack')
     command = command_str.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
-        var champ = require('/League/champ')(command[1], command[2] || 0);
-        var saybot = {
-            text: "Testing champion"
-        }
+        var saybot = require('/League/champ')(command[1], command[2] || 0);
 
     }
     else if (command[0].toLowerCase() === "monster") {

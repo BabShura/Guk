@@ -17,4 +17,7 @@ module.exports = (name, skin) => {
         "username": "LoL-champ"
         "icon_emoji": ":champ:"
     }
+
+
+    return saybot
 }
