@@ -31,7 +31,7 @@ router.route('/slack')
         }
     }
     else if (command[0].toLowerCase() === "item") {
-        var hold = require('../League/item').hold;
+        var hold = require('../League/item').test;
         var saybot = {
             text: "The RITO API does not serve data on individual Items. Making this a very exhaustive computation. Go to <forum link> to discuss and let RITO know we care." + hold
         }
