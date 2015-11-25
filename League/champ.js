@@ -1,5 +1,7 @@
-exports.saybot = function(name, skin) {
-    console.log("IN")
+exports.saybot = (command) => {
+    console.log("IN CHAMP JS", command)
+    var name = command[1];
+    var skin = command[2] || '0';
     league_v = http.get("https://ddragon.leagueoflegends.com/realms/na.json")
     console.log(league_v)
 
