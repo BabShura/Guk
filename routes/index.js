@@ -8,11 +8,14 @@ router.route('/')
 
 router.route('/slack')
 .post( (req, res, next) => {
+    console.log("on /slack")
+    console.log(req.body)
+
     var saybot = slack.respond(req.body, (hook)=>{
         // Do stuff here
         console.log(hook);
         return {
-            "text": "use "+ hook.trigger + " to display information on Champions, Items, Maps, and Monsters.",
+            "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.",
             "username": "LoL-botsy"
         }
     })
