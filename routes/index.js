@@ -11,6 +11,7 @@ router.route('/slack')
     trigger = req.body.trigger_word
     command = req.body.text
     command.replace(trigger ,'').trim().split(' ') //condense the call to an array of strings
+    console.log(req.body)
     console.log(command)
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
