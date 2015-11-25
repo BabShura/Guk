@@ -49,6 +49,8 @@ router.route('/slack')
         }
     }
 
+    //Sending back the json message
+    console.log("Responding.")
     res.json(saybot);
 })
 
