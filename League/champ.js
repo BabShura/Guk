@@ -1,7 +1,10 @@
-league_v = http.get("https://ddragon.leagueoflegends.com/realms/na.json")
-
-
 module.exports = (name, skin) => {
+
+    league_v = http.get("https://ddragon.leagueoflegends.com/realms/na.json")
+    console.log(league_v)
+
+
+
 
     champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + league_v + "/data/en_US/champion/" + name + ".json")
 
