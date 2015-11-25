@@ -1,4 +1,4 @@
-module.exports = (name, skin) => {
+exports.saybot = function(name, skin) {
     console.log("IN")
     league_v = http.get("https://ddragon.leagueoflegends.com/realms/na.json")
     console.log(league_v)
