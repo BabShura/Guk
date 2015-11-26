@@ -1,40 +1,35 @@
-var https = require('https');
 var http = require('http');
+
+var versions = require('./versions')
 
 var name = command[1];
 var skin = command[2] || '0';
 
-league_v = {}
-https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
+
+champ_v = league.res.versions.n.champion
+
+
+champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + champ_v + "/data/en_US/champion/" + name + ".json", (res) => {
     data = ""
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
         data += chunk;
     })
-    res.on('end', () => {
-        league_v = JSON.parse(data);
+    res.on('end', (cb) => {
+        res.champ = JSON.parse(data);
+        // Do something to pass up the champ data.
     })
-})
-console.log("VERSION", league_v)
+}).res.champ
 
 
-champ = {}
-http.get("http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/data/en_US/champion/" + name + ".json", (res) => {
-    data = ""
-    res.setEncoding('utf8')
-    res.on('data', (chunk) => {
-        data += chunk;
-    })
-    res.on('end', () => {
-        champ = JSON.parse(data);
-    })
-})
 
+// CHAMP IMAGES TO USE FOR SLACK
 // champ.images.links = {
 //     "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
 //     "square" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/champion/" + champ.images.full ,
 //     "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/sprite/"
 // }
+
 
 
 //Make attachments for each data set
