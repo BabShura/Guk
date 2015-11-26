@@ -3,10 +3,31 @@ var http = require('http');
 
 var name = command[1];
 var skin = command[2] || '0';
-league_v = https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res)=>{return res.data})
-console.log("VERSIONS", league_v)
 
-champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + league_v + "/data/en_US/champion/" + name + ".json")
+league_v = {}
+https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
+    data = ""
+    res.setEncoding('utf8')
+    res.on('data', (chunk) => {
+        data += chunk;
+    })
+    res.on('end', () => {
+        league_v = JSON.parse(data);
+    })
+})
+
+
+champ = {}
+http.get("http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/data/en_US/champion/" + name + ".json", (res) => {
+    data = ""
+    res.setEncoding('utf8')
+    res.on('data', (chunk) => {
+        data += chunk;
+    })
+    res.on('end', () => {
+        champ = JSON.parse(data);
+    })
+})
 
 champ.images.links = {
     "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
