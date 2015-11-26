@@ -15,6 +15,7 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
         league_v = JSON.parse(data);
     })
 })
+console.log("VERSION", league_v)
 
 
 champ = {}
