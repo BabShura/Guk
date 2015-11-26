@@ -1,8 +1,9 @@
+var https = require('https');
 var http = require('http');
 
 var name = command[1];
 var skin = command[2] || '0';
-league_v = http.get("https://ddragon.leagueoflegends.com/realms/na.json")
+league_v = https.get("https://ddragon.leagueoflegends.com/realms/na.json")
 console.log(league_v)
 
 champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + league_v + "/data/en_US/champion/" + name + ".json")
