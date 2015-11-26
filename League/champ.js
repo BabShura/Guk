@@ -1,12 +1,12 @@
 var http = require('http');
 
-var versions = require('./versions')
+var league = require('./versions')
 
 var name = command[1];
 var skin = command[2] || '0';
 
-
-champ_v = league.res.versions.n.champion
+//Access ddragon latest version for Champions
+champ_v = league.versions.res.info.n.champion
 
 
 champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + champ_v + "/data/en_US/champion/" + name + ".json", (res) => {
