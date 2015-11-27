@@ -6,12 +6,12 @@ function objectchanger(obj,info)
 }
 
 function version(){
-    this.data = {};
-}
+    this.data = null;
+};
 
 version.prototype.export(info){
     this.data = info;
-}
+};
 
 version.prototype.retrieve() {
     return this.data;
