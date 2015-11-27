@@ -1,7 +1,7 @@
 var https = require('https');
 
 function version(){
-    this.data = null;
+    this.data = {};
 };
 
 version.prototype.set = function(res) {
@@ -10,9 +10,9 @@ version.prototype.set = function(res) {
     res.on('data', (chunk) => {
         info += chunk;
     })
-    this.data = res.on('end', () => {
+    res.on('end', () => {
         try {
-            return JSON.parse(info); //has data
+            this.data = JSON.parse(info); //has data
             // expose this value, used by other modules to retrieve data.
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
