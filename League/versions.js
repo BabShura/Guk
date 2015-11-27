@@ -7,9 +7,8 @@ exports.version = {}
     Data.prototype.set = function(val){
             this.value = val;
      }
-    d = new Data();
 
-https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
+grab = https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
     info = '';
     value = {}
 
@@ -27,11 +26,6 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
             console.error('Unable to parse response as JSON', err);
         }
     })
-
-    setTimeout(()=>{
-        console.log(d);
-        d.set(t.value)
-    })
 })
 
-    setTimeout(()=>{ console.log("VERSIONS AFTER", d);})
+    setTimeout(()=>{ console.log("VERSIONS AFTER", grab.t);})
