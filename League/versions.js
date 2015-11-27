@@ -29,9 +29,8 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
     })
 
     setTimeout(()=>{
-        d.set(t.value)
-        console.log(t);
         console.log(d);
+        d.set(t.value)
     })
 })
 
