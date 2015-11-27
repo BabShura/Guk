@@ -1,6 +1,6 @@
 var https = require('https');
 
-dataExport = (data) => {
+function dataExport(data){
     exports.versions = data;
 }
 
