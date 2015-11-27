@@ -1,4 +1,5 @@
 var https = require('https');
+exports.version = {}
 
 https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
     info = '';
@@ -23,5 +24,5 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
             console.error('Unable to parse response as JSON', err);
         }
     })
-    setTimeout(()=>{ console.log(d.value);})
+    setTimeout(()=>{ console.log(d.value); exports.version = d.value})
 })
