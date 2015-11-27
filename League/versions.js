@@ -1,6 +1,6 @@
 var https = require('https');
 
-data = {}
+exports.data = {}
 
 https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
     info = ""
@@ -11,6 +11,7 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
     res.on('end', () => {
         try {
             data = JSON.parse(info);
+            exports.data = JSON.parse(info);
             console.log("INSIDE", data)
             // expose this value, used by other modules to retrieve data.
             setTimeout( ()=>{
