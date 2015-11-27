@@ -18,7 +18,7 @@ exports.versions = () => {
         })
     })
 
-    setTimeOut( ()=>{
-     return versions
+    setTimeout( ()=>{
+        return versions;
     })
 }
