@@ -9,9 +9,11 @@ exports.version = {}
      }
     d = new data();
 
-https.get("https://ddragon.leagueoflegends.com/realms/na.json", d,(res)=>{
+https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
     info = '';
     value = {}
+
+    t = d
 
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
@@ -20,7 +22,7 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json", d,(res)=>{
     res.on('end', () => {
         try {
             value = JSON.parse(info); //Find a wy to pass this data around.
-            d.set(value)
+            t.set(value)
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
         }
