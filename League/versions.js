@@ -19,7 +19,7 @@ version.prototype.set = function(res) {
             console.error('Unable to parse response as JSON', err);
         }
     })
-    console.log(res);
+    console.log(res.data);
 };
 
 version.prototype.retrieve = function() {
