@@ -1,19 +1,19 @@
 var https = require('https');
 exports.version = {}
 
-    function data(){
+    function Data(){
         this.value = null;
     }
-    data.prototype.set = function(val){
+    Data.prototype.set = function(val){
             this.value = val;
      }
-    d = new data();
+    d = new Data();
 
 https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
     info = '';
     value = {}
 
-    t = d
+    t = new Data()
 
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
@@ -26,6 +26,12 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
         }
+    })
+
+    setTimeout(()=>{
+        d.set(t.value)
+        console.log(t);
+        console.log(d);
     })
 })
 
