@@ -2,7 +2,7 @@ var https = require('https');
 
 function objectchanger(obj,info)
 {
-	obj.export(info)); // runs the method of the object being passed in
+	obj.export(info); // runs the method of the object being passed in
 }
 
 function version(){
