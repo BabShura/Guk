@@ -7,11 +7,11 @@ exports.version = {}
     data.prototype.set = function(val){
             this.value = val;
      }
+    d = new data();
 
 https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
     info = '';
     value = {}
-    d = new data();
 
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
