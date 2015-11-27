@@ -10,9 +10,9 @@ version.prototype.set = function(res) {
     res.on('data', (chunk) => {
         info += chunk;
     })
-    res.on('end', () => {
+    this.data = res.on('end', () => {
         try {
-            this.data = JSON.parse(info); //has data
+            return JSON.parse(info); //has data
             // expose this value, used by other modules to retrieve data.
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
@@ -25,8 +25,6 @@ version.prototype.retrieve = function() {
 };
 
 v = new version();
-
-
 https.get("https://ddragon.leagueoflegends.com/realms/na.json", v.set)
 
 console.log("v_obj CHECK", v);
