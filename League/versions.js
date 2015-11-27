@@ -6,7 +6,6 @@ function version(){
 
 version.prototype.set = function(res) {
     info = ''
-    console.log(res);
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
         info += chunk;
@@ -14,11 +13,13 @@ version.prototype.set = function(res) {
     res.on('end', () => {
         try {
             this.data = JSON.parse(info); //has data
+            data = JSON.parse(info);
             // expose this value, used by other modules to retrieve data.
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
         }
     })
+    console.log(res);
 };
 
 version.prototype.retrieve = function() {
