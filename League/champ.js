@@ -6,9 +6,10 @@ var name = command[1];
 var skin = command[2] || '0';
 
 //Access ddragon latest version for Champions
+hold = league.versions();
 // champ_v = league.versions().n.champion
 
-champ_v = 3.23.1
+champ_v = '3.23.1'
 
 
 champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + champ_v + "/data/en_US/champion/" + name + ".json", (res) => {
