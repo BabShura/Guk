@@ -5,21 +5,21 @@ function version(){
 };
 
 version.prototype.set = function(res) {
-    info = ''
+    info = '';
+    data = {};
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
         info += chunk;
     })
     res.on('end', () => {
         try {
-            this.data = JSON.parse(info); //has data
-            data = JSON.parse(info);
+            data = JSON.parse(info); //has data
             // expose this value, used by other modules to retrieve data.
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
         }
     })
-    console.log(res.data);
+    this.data = data;
 };
 
 version.prototype.retrieve = function() {
