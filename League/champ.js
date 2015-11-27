@@ -12,14 +12,14 @@ hold = league.versions();
 champ_v = '3.23.1'
 
 
-champ = http.get("http://ddragon.leagueoflegends.com/cdn/" + champ_v + "/data/en_US/champion/" + name + ".json", (res) => {
-    data = ""
+http.get("http://ddragon.leagueoflegends.com/cdn/" + champ_v + "/data/en_US/champion/" + name + ".json", (res) => {
+    info = ""
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
-        data += chunk;
+        info += chunk;
     })
     res.on('end', (cb) => {
-        res.champ = JSON.parse(data);
+        champ = JSON.parse(info);
         // Do something to pass up the champ data.
     })
 }).res.champ
@@ -80,6 +80,8 @@ champ_data = {
     // "attachments": []
 }
 
-module.exports = {
-    "champ": champ_data
-}
+setTimeout(()=>{
+    module.exports = {
+        "champ": champ_data
+    }
+})

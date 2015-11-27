@@ -9,7 +9,7 @@ exports.versions = () => {
     })
 
     https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
-        data = ""
+        info = ""
         res.setEncoding('utf8')
         res.on('data', (chunk) => {
             info += chunk;
