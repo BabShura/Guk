@@ -6,14 +6,10 @@ var name = command[1];
 var skin = command[2] || '0';
 
 //Access ddragon latest version for Champions
-champ_v = setTimeout(()=>{
-    console.log("IN", league);
-    return league.versions.champion
-})
-    console.log("OUT", league);
+    console.log("IN CHAMPJS", league);
 
 
-http.get("http://ddragon.leagueoflegends.com/cdn/" + champ_v + "/data/en_US/champion/" + name + ".json", (res) => {
+http.get(league.cdn + league.champion + "/data/en_US/champion/" + name + ".json", (res) => {
     info = ""
     res.setEncoding('utf8')
     res.on('data', (chunk) => {

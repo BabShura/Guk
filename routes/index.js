@@ -41,6 +41,7 @@ router.route('/slack')
     }
     else {
         var test = require('../League/test')
+        console.log(test)
         var saybot = {
             "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.\nKeywords include (desc): champion/champ, item, map, summoner, monster",
             "username": "LoL-botsy",
