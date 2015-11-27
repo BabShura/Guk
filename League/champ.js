@@ -6,8 +6,8 @@ var name = command[1];
 var skin = command[2] || '0';
 
 //Access ddragon latest version for Champions
-hold = league.versions();
-// champ_v = league.versions().n.champion
+hold = league.versions;
+champ_v = league.versions.champion
 
 champ_v = '3.23.1'
 

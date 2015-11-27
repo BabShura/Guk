@@ -13,8 +13,9 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
             data = JSON.parse(info);
             console.log("INSIDE", data)
             // expose this value, used by other modules to retrieve data.
-            return setTimeout( ()=>{
+            setTimeout( ()=>{
                 console.log("CHECK", data)
+                exports.versions = data.n
             })
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
