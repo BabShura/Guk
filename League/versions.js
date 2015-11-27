@@ -27,4 +27,4 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
     setTimeout(()=>{ exports.version = d.value ; console.log(exports.version);})
 })
 
-    setTimeout(()=>{ console.log("VERSIONS AFTER"); console.log(exports.version);})
+    setTimeout(()=>{ console.log("VERSIONS AFTER", exports.version);})
