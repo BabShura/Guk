@@ -9,7 +9,7 @@ exports.version = {}
      }
     d = new data();
 
-https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
+https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res, d)=>{
     info = '';
     value = {}
 
