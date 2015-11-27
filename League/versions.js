@@ -6,6 +6,7 @@ function version(){
 
 version.prototype.set = function(res) {
     info = ''
+    console.log(res);
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
         info += chunk;
