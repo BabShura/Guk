@@ -1,3 +1,3 @@
 var league = require('./versions')
 
-console.log(league);
+console.log("IN TEST", league);
