@@ -10,7 +10,7 @@ exports.versions = () => {
         })
         res.on('end', () => {
             try {
-                versions = JSON.parse(data);
+                data = JSON.parse(data);
                 // expose this value, used by other modules to retrieve data.
             } catch (err) {
                 console.error('Unable to parse response as JSON', err);
@@ -18,7 +18,7 @@ exports.versions = () => {
         })
     })
 
-    setTimeout( ()=>{
-        return versions;
+    return setTimeout( (data)=>{
+        return data;
     })
 }
