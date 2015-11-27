@@ -5,7 +5,7 @@ function version(){
     this.data = {};
 }
 
-data.prototype.export(info){
+version.prototype.export(info){
     this.data = info;
 }
 
