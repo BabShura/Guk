@@ -1,12 +1,13 @@
 var https = require('https');
 
 exports.versions = () => {
-    versions = {}
+    data = {}
 
     return setTimeout( (data)=>{
+        console.log("Check out the version", data)
         return data;
     })
-    
+
     https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res) => {
         data = ""
         res.setEncoding('utf8')
