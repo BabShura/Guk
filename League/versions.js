@@ -23,5 +23,5 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
             console.error('Unable to parse response as JSON', err);
         }
     })
-    setTimeout(()=>{exports.version = d.value})
+    setTimeout(()=>{ console.log(d.value);})
 })
