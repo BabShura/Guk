@@ -9,11 +9,11 @@ function version(){
     this.data = null;
 };
 
-version.prototype.export(info){
+version.prototype.export = function(info) {
     this.data = info;
 };
 
-version.prototype.retrieve() {
+version.prototype.retrieve = function() {
     return this.data;
 };
 
