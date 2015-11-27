@@ -1,10 +1,18 @@
 var https = require('https');
 
-function dataExport(data){
-    exports.versions = data;
+
+function version(){
+    this.data = {};
 }
 
-https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res, dataExport) => {
+data.prototype.export(info){
+    this.data = info;
+}
+
+v = new version();
+
+
+https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res, v) => {
     info = ""
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
@@ -14,10 +22,14 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res, dataExport
         try {
             data = JSON.parse(info);
             console.log("INSIDE", data)
-            dataExport(data);
+            v.Export(data);
             // expose this value, used by other modules to retrieve data.
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
         }
     })
 })
+
+console.log("v_obj", v);
+
+exports.versions = v.data
