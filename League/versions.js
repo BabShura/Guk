@@ -1,10 +1,5 @@
 var https = require('https');
 
-function objectchanger(obj,info)
-{
-	obj.export(info); // runs the method of the object being passed in
-}
-
 function version(){
     this.data = null;
 };
@@ -17,6 +12,11 @@ version.prototype.retrieve = function() {
     return this.data;
 };
 
+function objectchanger(obj,info)
+{
+	obj.export(info); // runs the method of the object being passed in
+}
+
 v = new version();
 
 
@@ -28,8 +28,7 @@ https.get("https://ddragon.leagueoflegends.com/realms/na.json", (res, objectchan
     })
     res.on('end', () => {
         try {
-            data = JSON.parse(info);
-            console.log("INSIDE", data)
+            data = JSON.parse(info); //has data
             objectchanger(v,data)
             // expose this value, used by other modules to retrieve data.
         } catch (err) {
