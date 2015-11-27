@@ -6,9 +6,9 @@ var name = command[1];
 var skin = command[2] || '0';
 
 //Access ddragon latest version for Champions
-    console.console.log("OUT", league);
+    console.log("OUT", league);
 champ_v = setTimeout(()=>{
-    console.console.log("IN", league);
+    console.log("IN", league);
     return league.versions.champion
 })
 
