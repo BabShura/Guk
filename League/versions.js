@@ -1,35 +1,19 @@
 var https = require('https');
 
-function version(){
-    this.data = null;
-};
+massive = {}
 
-version.prototype.set = function(res) {
+https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res(massive))){
     info = '';
-    data = {};
     res.setEncoding('utf8')
     res.on('data', (chunk) => {
         info += chunk;
     })
-    res.on('end', () => {
+    res.on('end', massive = () => {
         try {
-            data = JSON.parse(info); //has data
-            // expose this value, used by other modules to retrieve data.
+            data = JSON.parse(info); //Find a wy to pass this data around.
+            return data
         } catch (err) {
             console.error('Unable to parse response as JSON', err);
         }
     })
-            console.log("PARSED", info);
-    version.data = data;
-};
-
-version.prototype.retrieve = function() {
-    return this.data;
-};
-
-v = new version();
-https.get("https://ddragon.leagueoflegends.com/realms/na.json", v.set)
-
-console.log("v_obj CHECK", v);
-
-exports.versions = v.retrieve();
+}
