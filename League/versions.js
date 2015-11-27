@@ -1,15 +1,16 @@
 var https = require('https');
 exports.version = {}
 
-https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
-    info = '';
-    value = {}
     function data(){
         this.value = null;
     }
     data.prototype.set = function(val){
             this.value = val;
      }
+     
+https.get("https://ddragon.leagueoflegends.com/realms/na.json",(res)=>{
+    info = '';
+    value = {}
     d = new data();
 
     res.setEncoding('utf8')
