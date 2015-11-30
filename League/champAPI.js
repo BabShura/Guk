@@ -1,12 +1,17 @@
-var https = require('https');
+var API = require('lol-riot-api-module');
 
 exports.champ = (specifiers, res)=>{
 
-    https.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
+    var api = new API({
+        key: process.env.RIOT_API_KEY,
+        region: 'na'
+    })
+
+    api.getChampionData(specifiers.opt, (champs)=>{
 
 
-        
-        champ = champData.data
+
+        champ = champs.data[specifiers.name]
         // CHAMP IMAGES TO USE FOR SLACK
         champ.images.links = {
             "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",

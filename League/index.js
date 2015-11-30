@@ -22,7 +22,7 @@ exports.saybot = (req, res) => {
             skin: '0',
             version: '5.23.1'
         }
-        var saybot = require('./champ').champ(specifiers, res);
+        var saybot = require('./champAPI').champ(specifiers, res);
     }
     else if (command[0].toLowerCase() === "monster") {
         console.log("API MONSTERS")
