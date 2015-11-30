@@ -1,27 +1,27 @@
 exports.saybot = (req, res) => {
 
-    console.log(req.body);
 
     trigger = req.body.trigger_word;
-    command = req.body.text.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
+    query = req.body.text;
+    command = query.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
+    console.log(command);
 
     var api = {
         key: process.env.RIOT_API_KEY,
         region: 'na'
     }
 
-    var specifiers = {
-        opt: {
-            locale: 'en_US',
-            region: 'na',
-            champData: ['image', 'passive', 'spells', 'partype']
-        },
-        name: command[1][0].toUpperCase() + command[1].slice(1).toLowerCase(),
-        skin: '0',
-        version: '5.23.1'
-    }
-
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
+        var specifiers = {
+            opt: {
+                locale: 'en_US',
+                region: 'na',
+                champData: ['image', 'passive', 'spells', 'partype']
+            },
+            name: command[1][0].toUpperCase() + command[1].slice(1).toLowerCase(),
+            skin: '0',
+            version: '5.23.1'
+        }
         var saybot = require('./champ').champ(specifiers, res);
     }
     else if (command[0].toLowerCase() === "monster") {
