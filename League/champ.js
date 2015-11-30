@@ -2,7 +2,7 @@ var http = require('http');
 
 exports.champ = (specifiers, res)=>{
 
-    http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
+    http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion/' + specifiers.name + '.json', (resChamp)=>{
         info = ''
         resChamp.setEncoding('utf8')
 
