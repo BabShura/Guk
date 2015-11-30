@@ -29,7 +29,7 @@ exports.champ = (specifiers, res)=>{
         }
 
         image = {
-            "fallback": "Champ image"
+            "fallback": "Champ image",
             "image_url": champ.image.links.square
         }
 

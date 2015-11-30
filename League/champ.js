@@ -5,7 +5,7 @@ exports.champ = (specifiers, res)=>{
     https.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
 
 
-        
+
         champ = champData.data
         // CHAMP IMAGES TO USE FOR SLACK
         champ.images.links = {
@@ -23,7 +23,7 @@ exports.champ = (specifiers, res)=>{
         }
 
         image = {
-            "fallback": "Champ image"
+            "fallback": "Champ image",
             "image_url": champ.image.link.square
         }
 

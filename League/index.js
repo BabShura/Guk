@@ -22,8 +22,6 @@ exports.saybot = (req, res) => {
             skin: '0',
             version: '5.23.1'
         }
-        console.log(specifiers);
-
         setTimeout( (specifiers, res)=>{require('./champAPI').champ(specifiers, res);} )
     }
     else if (command[0].toLowerCase() === "monster") {
