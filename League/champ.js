@@ -45,7 +45,7 @@ exports.champ = (specifiers, res)=>{
         saybot = {
             "text": "Champ Info",
             "username": "LoL-champ",
-            "icon_emoji": ":champ:"
+            "icon_emoji": ":champ:",
             "attachments": [basic, image, passive, spells]
         }
 

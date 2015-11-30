@@ -1,23 +1,23 @@
 var API = require('lol-riot-api-module');
 
-exports.champ = (specifiers, res)=>{
+exports.champ = (specs, res)=>{
 
     var api = new API({
         key: process.env.RIOT_API_KEY,
         region: 'na'
     })
 
-    api.getChampionData(specifiers.opt, (champs)=>{
+    api.getChampionData(specs.opt, (champs)=>{
 
 
 
-        champ = champs.data[specifiers.name]
+        champ = champs.data[specs.name]
         console.log("FOUND", champ);
         // CHAMP IMAGES TO USE FOR SLACK
         champ.image.links = {
             "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
-            "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.images.full ,
-            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
+            "square" : "http://ddragon.leagueoflegends.com/cdn/" + specs.version + "/img/champion/" + champ.images.full ,
+            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specs.version + "/img/sprite/"
         }
 
         console.log("Added img links", champ);

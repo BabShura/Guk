@@ -13,14 +13,14 @@ exports.saybot = (req, res) => {
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
         var specifiers = {
-            opt: {
-                locale: 'en_US',
-                region: 'na',
-                champData: ['image', 'passive', 'spells', 'partype']
+            "opt": {
+                "locale": 'en_US',
+                "region": 'na',
+                "champData": ['image', 'passive', 'spells', 'partype']
             },
-            name: command[1][0].toUpperCase() + command[1].slice(1).toLowerCase(),
-            skin: '0',
-            version: '5.23.1'
+            "name": command[1][0].toUpperCase() + command[1].slice(1).toLowerCase(),
+            "skin": '0',
+            "version": '5.23.1'
         }
         setTimeout( (specifiers, res)=>{require('./champAPI').champ(specifiers, res);} )
     }
