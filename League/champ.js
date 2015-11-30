@@ -11,7 +11,8 @@ exports.champ = (specifiers, res)=>{
         })
 
         resChamp.on('end', ()=>{
-            champ = JSON.parse(info)
+            champ = JSON.parse(info).data[specifiers.name];
+            console.log(champ);
 
             // CHAMP IMAGES TO USE FOR SLACK
             champ.image.links = {
