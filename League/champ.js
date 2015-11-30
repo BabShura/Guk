@@ -2,14 +2,17 @@ var https = require('https');
 
 exports.champ = (specifiers, res)=>{
 
-    https.get('http://ddragon.leagueoflegends.com/cdn/5.23.1/data/en_US/' + specifiers.name + '.json', (champ)=>{
+    https.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/' + specifiers.name + '.json', (champData)=>{
 
+        champ = champData.data
         // CHAMP IMAGES TO USE FOR SLACK
         champ.images.links = {
             "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
-            "square" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/champion/" + champ.images.full ,
-            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/sprite/"
+            "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.images.full ,
+            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
         }
+
+        console.log("CHAMP", champ);
 
         basic = {
             "fallback": "Basic champ information",
