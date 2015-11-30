@@ -23,7 +23,8 @@ exports.saybot = (req, res) => {
             version: '5.23.1'
         }
         console.log(specifiers);
-        var saybot = require('./champAPI').champ(specifiers, res);
+
+        setTimeOut( (specifiers, res)=>require('./champAPI').champ(specifiers, res); )
     }
     else if (command[0].toLowerCase() === "monster") {
         console.log("API MONSTERS")
