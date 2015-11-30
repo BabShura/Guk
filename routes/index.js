@@ -7,6 +7,6 @@ router.route('/')
 })
 
 router.route('/slack')
-.post( require('../League').saybot )
+.post( require('../League').saybot(req, res) )
 
 module.exports = router;

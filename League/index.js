@@ -21,7 +21,6 @@ exports.saybot = (req, res, next) => {
         skin: '0'
     }
 
-
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
         var saybot = require('./champ').champ(api, res);
     }
