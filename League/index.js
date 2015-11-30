@@ -28,7 +28,6 @@ exports.saybot = (req, res, next) => {
         console.log("API MONSTERS")
         var saybot = {
             text: "The RITO API has no data on minions or neutral monsters. Go to <forum link> to discuss and let RITO know we care."
-            res.json(saybot)
         }
         res.json(saybot)
     }
