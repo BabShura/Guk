@@ -7,6 +7,7 @@ exports.champ = (specs, res)=>{
         region: 'na'
     })
 
+    console.log(specs);
     api.getChampionData(specs.opt, (champs)=>{
 
 
