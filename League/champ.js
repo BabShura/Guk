@@ -8,12 +8,10 @@ exports.champ = (specifiers, res)=>{
 
         resChamp.on('data', (chunk)=>{
             info += chunk;
-            console.log("DATA", info);
         })
 
         resChamp.on('end', ()=>{
-            console.log(JSON.parse(info))
-            champ = {}
+            champ = JSON.parse(info)
 
             // CHAMP IMAGES TO USE FOR SLACK
             champ.image.links = {
