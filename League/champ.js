@@ -1,8 +1,8 @@
-var https = require('https');
+var http = require('http');
 
 exports.champ = (specifiers, res)=>{
 
-    https.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
+    http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
 
 
 
