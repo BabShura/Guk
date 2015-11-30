@@ -15,7 +15,7 @@ exports.champ = (specifiers, res)=>{
 
             // CHAMP IMAGES TO USE FOR SLACK
             champ.image.links = {
-                "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
+                "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + specifiers.skin + ".jpg",
                 "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.image.full ,
                 "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
             }
