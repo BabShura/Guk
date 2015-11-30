@@ -1,8 +1,8 @@
+var https = require('https');
 
-exports.champ = (api, specifiers, res)=>{
+exports.champ = (specifiers, res)=>{
 
-    api.getChampionData(specifiers.opt, (champs){
-        champ = champs.data[specifiers.name]
+    https.get('http://ddragon.leagueoflegends.com/cdn/5.23.1/data/en_US/' + specifiers.name + '.json', (champ)=>{
 
         // CHAMP IMAGES TO USE FOR SLACK
         champ.images.links = {
@@ -41,10 +41,10 @@ exports.champ = (api, specifiers, res)=>{
             "text": "Champ Info",
             "username": "LoL-champ",
             "icon_emoji": ":champ:"
-            "attachments": [basic, image, passive, spells, ]
+            "attachments": [basic, image, passive, spells]
         }
 
-
+        console.log(saybot);
         res.JSON(saybot)
     })
 }

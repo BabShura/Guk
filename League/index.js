@@ -1,15 +1,12 @@
-var API = require('lol-riot-api-module')
-
-
 exports.saybot = (req, res, next) => {
 
     trigger = req.body.trigger_word;
     command = req.body.text.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
 
-    var api = new API({
+    var api = {
         key: process.env.RIOT_API_KEY,
         region: 'na'
-    })
+    }
 
     var specifiers = {
         opt: {
@@ -18,11 +15,12 @@ exports.saybot = (req, res, next) => {
             champData: ['image', 'passive', 'spells', 'partype']
         },
         name: command[1][0].toUpperCase() + command[1].slice(1).toLowerCase(),
-        skin: '0'
+        skin: '0',
+        version: '5.23.1'
     }
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
-        var saybot = require('./champ').champ(api, res);
+        var saybot = require('./champ').champ(specifiers, res);
     }
     else if (command[0].toLowerCase() === "monster") {
         console.log("API MONSTERS")
