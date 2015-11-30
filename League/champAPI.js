@@ -14,7 +14,7 @@ exports.champ = (specifiers, res)=>{
         champ = champs.data[specifiers.name]
         console.log("FOUND", champ);
         // CHAMP IMAGES TO USE FOR SLACK
-        champ.images.links = {
+        champ.image.links = {
             "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
             "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.images.full ,
             "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
