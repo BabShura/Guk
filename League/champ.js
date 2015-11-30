@@ -3,52 +3,61 @@ var http = require('http');
 exports.champ = (specifiers, res)=>{
 
     http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
+        info = ''
+        res.setEncoding('utf8')
 
+        resChamp.on('data', (chunk)=>{
+            info += chunk;
+        })
 
-        // CHAMP IMAGES TO USE FOR SLACK
-        resChamp.data.images.links = {
-            "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + resChamp.data.name + "_" + skin + ".jpg",
-            "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + resChamp.data.images.full ,
-            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
-        }
+        resChamp.on('end', ()=>{
+            champ = JSON.parse(info).data
 
-        console.log("CHAMP", resChamp);
+            // CHAMP IMAGES TO USE FOR SLACK
+            champ..image.links = {
+                "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
+                "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.image.full ,
+                "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
+            }
 
-        basic = {
-            "fallback": "Basic champ information",
-            "title": "Basic information",
-            "text": "Name: " + resChamp.data.name + " " + resChamp.data.title
-        }
+            console.log("CHAMP", champ);
 
-        image = {
-            "fallback": "Champ image",
-            "image_url": resChamp.data.image.link.square
-        }
+            basic = {
+                "fallback": "Basic champ information",
+                "title": "Basic information",
+                "text": "Name: " + champ.name + " " + champ.title
+            }
 
-        passive = {
-            "fallback": "Champ Passive",
-            "title": "Passive",
-            "text": resChamp.data.passive.name + ": " + resChamp.data.passive.descrition
+            image = {
+                "fallback": "Champ image",
+                "image_url": champ.image.link.square
+            }
 
-        }
+            passive = {
+                "fallback": "Champ Passive",
+                "title": "Passive",
+                "text": champ..passive.name + ": " + champ.passive.description
 
-        spells = {
-            "fallback": "Champ Spells",
-            "title": "Spells",
-            "text": ""
+            }
 
-        }
+            spells = {
+                "fallback": "Champ Spells",
+                "title": "Spells",
+                "text": ""
 
-        //Assemble the champion data parts in slack format
-        saybot = {
-            "text": "Champ Info",
-            "username": "LoL-champ",
-            "icon_emoji": ":champ:",
-            "attachments": [basic, image, passive, spells]
-        }
+            }
 
-        console.log(saybot);
-        res.JSON(saybot)
+            //Assemble the champion data parts in slack format
+            saybot = {
+                "text": "Champ Info",
+                "username": "LoL-champ",
+                "icon_emoji": ":champ:",
+                "attachments": [basic, image, passive, spells]
+            }
+
+            console.log(saybot);
+            res.JSON(saybot)
+        })
     })
 }
 
