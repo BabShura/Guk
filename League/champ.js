@@ -7,12 +7,14 @@ exports.champ = (specifiers, res)=>{
 
 
         champ = resChamp.data
-        // CHAMP IMAGES TO USE FOR SLACK
-        champ.images.links = {
-            "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
-            "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.images.full ,
-            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
-        }
+        setTimeout((champ){
+            // CHAMP IMAGES TO USE FOR SLACK
+            champ.images.links = {
+                "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
+                "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.images.full ,
+                "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
+            }
+        })
 
         console.log("CHAMP", champ);
 
