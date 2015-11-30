@@ -7,7 +7,7 @@ exports.champ = (specifiers, res)=>{
 
 
         champ = resChamp.data
-        setTimeout((champ){
+        setTimeout((champ)=>{
             // CHAMP IMAGES TO USE FOR SLACK
             champ.images.links = {
                 "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
