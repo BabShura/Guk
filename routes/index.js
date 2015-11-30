@@ -3,53 +3,10 @@ var router = express.Router();
 
 router.route('/')
 .get( (req, res, next) => {
-    res.send("Testing, guagua.")
+    res.redirect(webtester.slack.com)
 })
 
 router.route('/slack')
-.post( (req, res, next) => {
-    trigger = req.body.trigger_word;
-    command_str = req.body.text;
-    command = command_str.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
-
-    if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
-        var saybot = require('../League/champ').champ;
-    }
-    else if (command[0].toLowerCase() === "monster") {
-        var saybot = {
-            text: "The RITO API has no data on minions or neutral monsters. Go to <forum link> to discuss and let RITO know we care."
-        }
-
-    }
-    else if (command[0].toLowerCase() === "map") {
-
-        var saybot = {
-            text: "The RITO API has no data on Map resources (turrets, inhibitors). Go to <forum link> to discuss and let RITO know we care."
-        }
-    }
-    else if (command[0].toLowerCase() === "item") {
-        var hold = require('../League/item');
-        var saybot = {
-            text: "The RITO API does not serve data on individual Items. Making this a very exhaustive computation. Go to <forum link> to discuss and let RITO know we care." + hold.test
-        }
-    }
-    else if (command[0].toLowerCase() === "summoner") {
-        var summoner = require('../League/summoner')(command[1]);
-        var saybot = {
-            "text": "Testing item"
-        }
-    }
-    else {
-        var test = require('../League/test')
-        var saybot = {
-            "text": "Use \"castLoL <desc> <name>\" commands to display information on Champions, Items, Maps, and Monsters.\nKeywords include (desc): champion/champ, item, map, summoner, monster",
-            "username": "LoL-botsy",
-            "icon_emoji": ":dusty_stick:"
-        }
-    }
-
-    //Sending back the json message
-    res.json(saybot);
-})
+.post( require('../League').saybot )
 
 module.exports = router;

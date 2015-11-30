@@ -1,34 +1,56 @@
-var http = require('http');
 
-var league = require('./versions')
+exports.champ = (api, specifiers, res)=>{
 
-var name = command[1];
-var skin = command[2] || '0';
+    api.getChampionData(specifiers.opt, (champs){
+        champ = champs.data[specifiers.name]
 
-//Access ddragon latest version for Champions
-    console.log("IN CHAMPJS", league);
+        // CHAMP IMAGES TO USE FOR SLACK
+        champ.images.links = {
+            "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
+            "square" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/champion/" + champ.images.full ,
+            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/sprite/"
+        }
+
+        basic = {
+            "fallback": "Basic champ information",
+            "title": "Basic information",
+            "text": "Name: " + champ.name + " " + champ.title
+        }
+
+        image = {
+            "fallback": "Champ image"
+            "image_url": champ.image.link.square
+        }
+
+        passive = {
+            "fallback": "Champ Passive",
+            "title": "Passive",
+            "text": champ.passive.name + ": " + champ.passive.descrition
+
+        }
+
+        spells = {
+            "fallback": "Champ Spells",
+            "title": "Spells",
+            "text": ""
+
+        }
+
+        //Assemble the champion data parts in slack format
+        saybot = {
+            "text": "Champ Info",
+            "username": "LoL-champ",
+            "icon_emoji": ":champ:"
+            "attachments": [basic, image, passive, spells, ]
+        }
 
 
-http.get(league.cdn + league.champion + "/data/en_US/champion/" + name + ".json", (res) => {
-    info = ""
-    res.setEncoding('utf8')
-    res.on('data', (chunk) => {
-        info += chunk;
+        res.JSON(saybot)
     })
-    res.on('end', (cb) => {
-        champ = JSON.parse(info);
-        // Do something to pass up the champ data.
-    })
-})
+}
 
 
 
-// CHAMP IMAGES TO USE FOR SLACK
-// champ.images.links = {
-//     "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
-//     "square" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/champion/" + champ.images.full ,
-//     "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + league_v.n.champion + "/img/sprite/"
-// }
 
 
 
@@ -54,31 +76,3 @@ http.get(league.cdn + league.champion + "/data/en_US/champion/" + name + ".json"
 //     "image_url": "http://my-website.com/path/to/image.jpg",
 //     "thumb_url": "http://example.com/path/to/thumb.png"
 // }
-
-basic_info = {
-    "fallback": "Basic champ information",
-    "title": "Basic information",
-    "text": ""
-}
-
-
-spells_info = {
-    "fallback": "Champ Spells",
-    "title": "Spells",
-    "text": ""
-
-}
-
-
-champ_data = {
-    "text": "Champ Info",
-    "username": "LoL-champ",
-    "icon_emoji": ":champ:"
-    // "attachments": []
-}
-
-setTimeout(()=>{
-    module.exports = {
-        "champ": champ_data
-    }
-})
