@@ -2,7 +2,7 @@ var https = require('https');
 
 exports.champ = (specifiers, res)=>{
 
-    https.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/' + specifiers.name + '.json', (champData)=>{
+    https.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (champData)=>{
 
         champ = champData.data
         // CHAMP IMAGES TO USE FOR SLACK
