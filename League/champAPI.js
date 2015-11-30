@@ -51,7 +51,7 @@ exports.champ = (specifiers, res)=>{
             "text": "Champ Info",
             "username": "LoL-champ",
             "icon_emoji": ":champ:",
-            "attachments": [basic, image, passive, spells]
+            "attachments": []//[basic, image, passive, spells]
         }
 
         console.log("SAYBOT", saybot);
