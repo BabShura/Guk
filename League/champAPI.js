@@ -37,7 +37,6 @@ exports.champ = (specifiers, res)=>{
             "fallback": "Champ Passive",
             "title": "Passive",
             "text": champ.passive.name + ": " + champ.passive.descrition
-
         }
 
         spells = {
@@ -51,7 +50,7 @@ exports.champ = (specifiers, res)=>{
         saybot = {
             "text": "Champ Info",
             "username": "LoL-champ",
-            "icon_emoji": ":champ:"
+            "icon_emoji": ":champ:",
             "attachments": [basic, image, passive, spells]
         }
 
