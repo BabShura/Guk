@@ -12,6 +12,7 @@ exports.champ = (specifiers, res)=>{
 
 
         champ = champs.data[specifiers.name]
+        console.log("FOUND", champ);
         // CHAMP IMAGES TO USE FOR SLACK
         champ.images.links = {
             "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
@@ -19,7 +20,7 @@ exports.champ = (specifiers, res)=>{
             "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
         }
 
-        console.log("CHAMP", champ);
+        console.log("Added img links", champ);
 
         basic = {
             "fallback": "Basic champ information",
@@ -29,7 +30,7 @@ exports.champ = (specifiers, res)=>{
 
         image = {
             "fallback": "Champ image"
-            "image_url": champ.image.link.square
+            "image_url": champ.image.links.square
         }
 
         passive = {
@@ -53,6 +54,8 @@ exports.champ = (specifiers, res)=>{
             "icon_emoji": ":champ:"
             "attachments": [basic, image, passive, spells]
         }
+
+        console.log("SAYBOT", saybot);
 
         console.log(saybot);
         res.JSON(saybot)
