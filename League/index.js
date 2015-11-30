@@ -25,6 +25,7 @@ exports.saybot = (req, res, next) => {
         var saybot = require('./champ').champ(api, res);
     }
     else if (command[0].toLowerCase() === "monster") {
+        console.log("API MONSTERS")
         var saybot = {
             text: "The RITO API has no data on minions or neutral monsters. Go to <forum link> to discuss and let RITO know we care."
             res.json(saybot)
