@@ -16,7 +16,7 @@ exports.saybot = (req, res, next) => {
             locale: 'en_US',
             region: 'na',
             champData: ['image', 'passive', 'spells', 'partype']
-        }
+        },
         name: command[1][0].toUpperCase() + command[1].slice(1).toLowerCase(),
         skin: '0'
     }
