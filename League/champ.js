@@ -5,34 +5,30 @@ exports.champ = (specifiers, res)=>{
     http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
 
 
+        // CHAMP IMAGES TO USE FOR SLACK
+        resChamp.data.images.links = {
+            "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + resChamp.data.name + "_" + skin + ".jpg",
+            "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + resChamp.data.images.full ,
+            "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
+        }
 
-        champ = resChamp.data
-        setTimeout((champ)=>{
-            // CHAMP IMAGES TO USE FOR SLACK
-            champ.images.links = {
-                "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
-                "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.images.full ,
-                "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
-            }
-        })
-
-        console.log("CHAMP", champ);
+        console.log("CHAMP", resChamp);
 
         basic = {
             "fallback": "Basic champ information",
             "title": "Basic information",
-            "text": "Name: " + champ.name + " " + champ.title
+            "text": "Name: " + resChamp.data.name + " " + resChamp.data.title
         }
 
         image = {
             "fallback": "Champ image",
-            "image_url": champ.image.link.square
+            "image_url": resChamp.data.image.link.square
         }
 
         passive = {
             "fallback": "Champ Passive",
             "title": "Passive",
-            "text": champ.passive.name + ": " + champ.passive.descrition
+            "text": resChamp.data.passive.name + ": " + resChamp.data.passive.descrition
 
         }
 
