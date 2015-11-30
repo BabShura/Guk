@@ -1,4 +1,4 @@
-exports.saybot = (req, res, next) => {
+exports.saybot = (req, res) => {
 
     trigger = req.body.trigger_word;
     command = req.body.text.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
