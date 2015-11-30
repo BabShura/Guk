@@ -8,6 +8,7 @@ exports.champ = (specifiers, res)=>{
 
         resChamp.on('data', (chunk)=>{
             info += chunk;
+            console.log("DATA", info);
         })
 
         resChamp.on('end', ()=>{
