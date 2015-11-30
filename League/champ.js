@@ -2,7 +2,7 @@ var http = require('http');
 
 exports.champ = (specifiers, res)=>{
 
-    http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion/' + specifiers.name + '.json', (resChamp)=>{
+    http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion/' + specifiers.name + '.json', (resChamp, res)=>{
         info = ''
         resChamp.setEncoding('utf8')
 
@@ -10,7 +10,7 @@ exports.champ = (specifiers, res)=>{
             info += chunk;
         })
 
-        resChamp.on('end', ()=>{
+        resChamp.on('end', (res)=>{
             champ = JSON.parse(info).data[specifiers.name];
 
             // CHAMP IMAGES TO USE FOR SLACK
@@ -19,8 +19,6 @@ exports.champ = (specifiers, res)=>{
                 "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.image.full ,
                 "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
             }
-
-            console.log("CHAMP", champ);
 
             basic = {
                 "fallback": "Basic champ information",
