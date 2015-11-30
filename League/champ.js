@@ -30,7 +30,7 @@ exports.champ = (specifiers, res)=>{
 
             image = {
                 "fallback": "Champ image",
-                "image_url": champ.image.link.square
+                "image_url": champ.image.links.square
             }
 
             passive = {
