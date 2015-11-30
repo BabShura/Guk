@@ -4,7 +4,7 @@ exports.champ = (specifiers, res)=>{
 
     http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion' + specifiers.name + '.json', (resChamp)=>{
         info = ''
-        res.setEncoding('utf8')
+        resChamp.setEncoding('utf8')
 
         resChamp.on('data', (chunk)=>{
             info += chunk;
