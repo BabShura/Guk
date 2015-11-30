@@ -14,7 +14,7 @@ exports.champ = (specifiers, res)=>{
             champ = JSON.parse(info).data
 
             // CHAMP IMAGES TO USE FOR SLACK
-            champ..image.links = {
+            champ.image.links = {
                 "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
                 "square" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/champion/" + champ.image.full ,
                 "sprite" : "http://ddragon.leagueoflegends.com/cdn/" + specifiers.version + "/img/sprite/"
@@ -36,7 +36,7 @@ exports.champ = (specifiers, res)=>{
             passive = {
                 "fallback": "Champ Passive",
                 "title": "Passive",
-                "text": champ..passive.name + ": " + champ.passive.description
+                "text": champ.passive.name + ": " + champ.passive.description
 
             }
 
