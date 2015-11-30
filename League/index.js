@@ -24,7 +24,7 @@ exports.saybot = (req, res) => {
         }
         console.log(specifiers);
 
-        setTimeOut( (specifiers, res)=>{require('./champAPI').champ(specifiers, res);} )
+        setTimeout( (specifiers, res)=>{require('./champAPI').champ(specifiers, res);} )
     }
     else if (command[0].toLowerCase() === "monster") {
         console.log("API MONSTERS")
