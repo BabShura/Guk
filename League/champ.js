@@ -53,7 +53,7 @@ exports.champ = (specifiers, res)=>{
                     "fields": [{
                         "title": "Q: " + champ.spells[0].name,
                         "value": champ.spells[0].description,
-                        "short": false
+                        "short": true
                     },
                     {
                         "title": "W: " + champ.spells[1].name,
@@ -62,11 +62,13 @@ exports.champ = (specifiers, res)=>{
                     },
                     {
                         "title": "R: " + champ.spells[2].name,
-                        "value": champ.spells[2].description
+                        "value": champ.spells[2].description,
+                        "short": true
                     },
                     {
                         "title": "T: " + champ.spells[3].name,
-                        "value": champ.spells[3].description
+                        "value": champ.spells[3].description,
+                        "short": true
                     }
                     ]
             }
