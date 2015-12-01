@@ -2,6 +2,10 @@ var http = require('http');
 
 exports.champ = (specifiers, res)=>{
 
+    var testbot = {
+        text: "TESTBOT"
+    }
+    res.json(testbot)
     var that = this;
 
     http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion/' + specifiers.name + '.json', function(resChamp){
