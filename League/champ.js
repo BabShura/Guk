@@ -27,7 +27,7 @@ exports.champ = (specifiers, res)=>{
             basic = {
                 "fallback": "Basic champ information",
                 "title": "Basic information",
-                "text": "Name: " + champ.name + " " + champ.title
+                "text": "Name: *" + champ.name + "* " + champ.title
             }
 
             image = {
@@ -38,14 +38,25 @@ exports.champ = (specifiers, res)=>{
             passive = {
                 "fallback": "Champ Passive",
                 "title": "Passive",
-                "text": champ.passive.name + ": " + champ.passive.description
+                "text": champ.passive.name + ": *" + champ.passive.description + "*"
 
             }
 
             spells = {
-                "fallback": "Champ Spells",
-                "title": "Spells",
-                "text": ""
+                q:{
+                    "fallback": "Champ Spells",
+                    "title": "Spells",
+                    "text": "Q: *" + champ.spells[0].name + "* - " + champ.spells[0].description
+                },
+                w:{
+
+                },
+                e:{
+
+                },
+                r:{
+
+                }
 
             }
 
@@ -54,7 +65,7 @@ exports.champ = (specifiers, res)=>{
                 "text": "Champ Info",
                 "username": "LoL-champ",
                 "icon_emoji": ":champ:",
-                "attachments": [basic, image, passive, spells]
+                "attachments": [basic, image, passive, spell]
             }
             setTimeout(function(){
                 that.res.json(saybot)
