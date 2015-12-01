@@ -41,27 +41,32 @@ exports.champ = (specifiers, res)=>{
                 "mrkdwn_in": ["text", "pretext", "fields"],
                 "fallback": "Champ Passive",
                 "title": "Passive",
-                "text": champ.passive.name + ": *" + champ.passive.description + "*"
+                "text": "*" + champ.passive.name + "*: " + champ.passive.description + ""
 
             }
 
             spells = {
-                q:{
+
                     "mrkdwn_in": ["text", "pretext", "fields"],
                     "fallback": "Champ Spells",
                     "title": "Spells",
-                    "text": "Q: *" + champ.spells[0].name + "* - " + champ.spells[0].description
-                },
-                w:{
-
-                },
-                e:{
-
-                },
-                r:{
-
-                }
-
+                    "fields": [{
+                        "title": "Q: " + champ.spells[0].name
+                        "text": champ.spells[0].description
+                    },
+                    {
+                        "title": "W: " + champ.spells[1].name
+                        "text": champ.spells[1].description
+                    },
+                    {
+                        "title": "R: " + champ.spells[2].name
+                        "text": champ.spells[2].description
+                    },
+                    {
+                        "title": "T: " + champ.spells[3].name
+                        "text": champ.spells[3].description
+                    }
+                    ]
             }
 
             //Assemble the champion data parts in slack format
