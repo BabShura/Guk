@@ -65,7 +65,7 @@ exports.champ = (specifiers, res)=>{
                 "text": "Champ Info",
                 "username": "LoL-champ",
                 "icon_emoji": ":champ:",
-                "attachments": [basic, image, passive, spell]
+                "attachments": [basic, image, passive, spells]
             }
             setTimeout(function(){
                 that.res.json(saybot)
