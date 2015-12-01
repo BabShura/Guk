@@ -53,10 +53,10 @@ exports.champ = (specifiers, res)=>{
                 "icon_emoji": ":champ:",
                 "attachments": [basic, image, passive, spells]
             }
+        })
+        setTimeout(()=>{
             res.json(saybot)
         })
-
-
     })
 }
 
