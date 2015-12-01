@@ -5,7 +5,6 @@ exports.champ = (specifiers, res)=>{
     http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion/' + specifiers.name + '.json', (resChamp, res)=>{
         info = ''
         saybot = {}
-
         resChamp.setEncoding('utf8')
 
         resChamp.on('data', (chunk)=>{
@@ -54,11 +53,10 @@ exports.champ = (specifiers, res)=>{
                 "icon_emoji": ":champ:",
                 "attachments": [basic, image, passive, spells]
             }
+            res.json(saybot)
         })
 
-        setTimeout(()=>{
-            res.JSON(saybot)
-        })
+
     })
 }
 
