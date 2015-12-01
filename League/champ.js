@@ -2,7 +2,7 @@ var http = require('http');
 
 exports.champ = (specifiers, res)=>{
 
-    http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion/' + specifiers.name + '.json', res, (resChamp)=>{
+    http.get('http://ddragon.leagueoflegends.com/cdn/' + specifiers.version + '/data/en_US/champion/' + specifiers.name + '.json', function(resChamp){
         saybot = {}
         info = ''
         resChamp.setEncoding('utf8')
@@ -54,7 +54,7 @@ exports.champ = (specifiers, res)=>{
                 "attachments": [basic, image, passive, spells]
             }
         })
-        setTimeout(()=>{
+        setTimeout(function(){
             console.log(saybot);
             res.json(saybot)
         })
