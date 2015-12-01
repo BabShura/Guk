@@ -25,17 +25,20 @@ exports.champ = (specifiers, res)=>{
             }
 
             basic = {
+                "mrkdwn_in": ["text", "pretext", "fields"],
                 "fallback": "Basic champ information",
                 "title": "Basic information",
                 "text": "Name: *" + champ.name + "* " + champ.title
             }
 
             image = {
+                "mrkdwn_in": ["text", "pretext", "fields"],
                 "fallback": "Champ image",
                 "image_url": champ.image.links.square
             }
 
             passive = {
+                "mrkdwn_in": ["text", "pretext", "fields"],
                 "fallback": "Champ Passive",
                 "title": "Passive",
                 "text": champ.passive.name + ": *" + champ.passive.description + "*"
@@ -44,6 +47,7 @@ exports.champ = (specifiers, res)=>{
 
             spells = {
                 q:{
+                    "mrkdwn_in": ["text", "pretext", "fields"],
                     "fallback": "Champ Spells",
                     "title": "Spells",
                     "text": "Q: *" + champ.spells[0].name + "* - " + champ.spells[0].description
@@ -65,7 +69,9 @@ exports.champ = (specifiers, res)=>{
                 "text": "Champ Info",
                 "username": "LoL-champ",
                 "icon_emoji": ":champ:",
-                "attachments": [basic, image, passive, spells]
+                "attachments": [basic, image, passive, spells],
+
+                "mrkdwn": true
             }
             setTimeout(function(){
                 that.res.json(saybot)
