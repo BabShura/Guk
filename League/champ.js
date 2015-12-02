@@ -52,7 +52,7 @@ exports.champ = (specifiers, res)=>{
                     "title": "Spells",
                     "fields": [{
                         "title": "Q: " + champ.spells[0].name,
-                        "value": champ.spells[0].description,
+                        "value": champ.spells[0].description +"]nCD/lvl: "+ champ.spells[0].cooldown.toString(),
                         "short": true
                     },
                     {
