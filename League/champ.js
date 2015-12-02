@@ -41,8 +41,8 @@ exports.champ = (specifiers, res)=>{
                 "mrkdwn_in": ["text", "pretext", "fields"],
                 "fallback": "Champ Passive",
                 "title": "Passive",
-                "text": "*" + champ.passive.name + "*: " + champ.passive.description + ""
-
+                "text": "*" + champ.passive.name + "*: " +
+                champ.passive.description + ""
             }
 
             spells = {
@@ -54,28 +54,28 @@ exports.champ = (specifiers, res)=>{
                         "title": "Q: " + champ.spells[0].name,
                         "value": champ.spells[0].description +
                         "\nBase DMG: " + champ.spells[0].effectBurn[1] +
-                        "\nCD/lvl: " + champ.spells[0].cooldownBurn +
+                        "\nCD/lvl: " + champ.spells[0].cooldownBurn
                         ,
                         "short": true
                     },
                     {
                         "title": "W: " + champ.spells[1].name,
                         "value": champ.spells[1].description
-                        "\nCD/lvl: " + champ.spells[1].cooldownBurn +
+                        "\nCD/lvl: " + champ.spells[1].cooldownBurn
                         ,
                         "short": true
                     },
                     {
                         "title": "R: " + champ.spells[2].name,
                         "value": champ.spells[2].description
-                        "\nCD/lvl: " + champ.spells[2].cooldownBurn +
+                        "\nCD/lvl: " + champ.spells[2].cooldownBurn
                         ,
                         "short": true
                     },
                     {
                         "title": "T: " + champ.spells[3].name,
                         "value": champ.spells[3].description
-                        "\nCD/lvl: " + champ.spells[3].cooldownBurn +
+                        "\nCD/lvl: " + champ.spells[3].cooldownBurn
                         ,
                         "short": true
                     }
