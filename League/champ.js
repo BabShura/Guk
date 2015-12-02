@@ -57,28 +57,28 @@ exports.champ = (specifiers, res)=>{
                         "\nCD/lvl: " + champ.spells[0].cooldownBurn
                         ,
                         "short": true
-                    },
-                    {
-                        "title": "W: " + champ.spells[1].name,
-                        "value": champ.spells[1].description
-                        "\nCD/lvl: " + champ.spells[1].cooldownBurn
-                        ,
-                        "short": true
-                    },
-                    {
-                        "title": "R: " + champ.spells[2].name,
-                        "value": champ.spells[2].description
-                        "\nCD/lvl: " + champ.spells[2].cooldownBurn
-                        ,
-                        "short": true
-                    },
-                    {
-                        "title": "T: " + champ.spells[3].name,
-                        "value": champ.spells[3].description
-                        "\nCD/lvl: " + champ.spells[3].cooldownBurn
-                        ,
-                        "short": true
-                    }
+                    } //,
+                    // {
+                    //     "title": "W: " + champ.spells[1].name,
+                    //     "value": champ.spells[1].description
+                    //     "\nCD/lvl: " + champ.spells[1].cooldownBurn
+                    //     ,
+                    //     "short": true
+                    // },
+                    // {
+                    //     "title": "R: " + champ.spells[2].name,
+                    //     "value": champ.spells[2].description
+                    //     "\nCD/lvl: " + champ.spells[2].cooldownBurn
+                    //     ,
+                    //     "short": true
+                    // },
+                    // {
+                    //     "title": "T: " + champ.spells[3].name,
+                    //     "value": champ.spells[3].description
+                    //     "\nCD/lvl: " + champ.spells[3].cooldownBurn
+                    //     ,
+                    //     "short": true
+                    // }
                     ]
             }
 
@@ -98,31 +98,3 @@ exports.champ = (specifiers, res)=>{
         })
     })
 }
-
-
-
-
-
-
-//Make attachments for each data set
-
-// {
-//     "fallback": "Required plain-text summary of the attachment.",
-//     "color": "#36a64f",
-//     "pretext": "Optional text that appears above the attachment block",
-//     "author_name": "Bobby Tables",
-//     "author_link": "http://flickr.com/bobby/",
-//     "author_icon": "http://flickr.com/icons/bobby.jpg",
-//     "title": "Slack API Documentation",
-//     "title_link": "https://api.slack.com/",
-//     "text": "Optional text that appears within the attachment",
-//     "fields": [
-//         {
-//             "title": "Priority",
-//             "value": "High",
-//             "short": false
-//         }
-//     ],
-//     "image_url": "http://my-website.com/path/to/image.jpg",
-//     "thumb_url": "http://example.com/path/to/thumb.png"
-// }
