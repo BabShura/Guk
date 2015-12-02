@@ -1,5 +1,5 @@
 
 .env
-./sample_data.txt
+sample_data.txt
 
 node_modules/

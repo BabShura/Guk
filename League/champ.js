@@ -52,22 +52,31 @@ exports.champ = (specifiers, res)=>{
                     "title": "Spells",
                     "fields": [{
                         "title": "Q: " + champ.spells[0].name,
-                        "value": champ.spells[0].description +"]nCD/lvl: "+ champ.spells[0].cooldown.toString(),
+                        "value": champ.spells[0].description +
+                        "\nBase DMG: " + champ.spells[0].effectBurn[1] +
+                        "\nCD/lvl: " + champ.spells[0].cooldownBurn +
+                        ,
                         "short": true
                     },
                     {
                         "title": "W: " + champ.spells[1].name,
-                        "value": champ.spells[1].description,
+                        "value": champ.spells[1].description
+                        "\nCD/lvl: " + champ.spells[1].cooldownBurn +
+                        ,
                         "short": true
                     },
                     {
                         "title": "R: " + champ.spells[2].name,
-                        "value": champ.spells[2].description,
+                        "value": champ.spells[2].description
+                        "\nCD/lvl: " + champ.spells[2].cooldownBurn +
+                        ,
                         "short": true
                     },
                     {
                         "title": "T: " + champ.spells[3].name,
-                        "value": champ.spells[3].description,
+                        "value": champ.spells[3].description
+                        "\nCD/lvl: " + champ.spells[3].cooldownBurn +
+                        ,
                         "short": true
                     }
                     ]
