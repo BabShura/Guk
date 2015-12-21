@@ -1,18 +1,10 @@
 var API = require('lol-riot-api-module');
 
-exports.champ = (specs, res)=>{
-
-    var api = new API({
-        key: process.env.RIOT_API_KEY,
-        region: 'na'
-    })
+exports.champ = (specs,champCache, res)=>{
 
     console.log(specs);
-    api.getChampionData(specs.opt, (champs)=>{
 
-
-
-        champ = champs.data[specs.name]
+        champ = champCache[].data[specs.name]
         console.log("FOUND", champ);
         // CHAMP IMAGES TO USE FOR SLACK
         champ.image.links = {
@@ -61,31 +53,3 @@ exports.champ = (specs, res)=>{
         res.JSON(saybot)
     })
 }
-
-
-
-
-
-
-//Make attachments for each data set
-
-// {
-//     "fallback": "Required plain-text summary of the attachment.",
-//     "color": "#36a64f",
-//     "pretext": "Optional text that appears above the attachment block",
-//     "author_name": "Bobby Tables",
-//     "author_link": "http://flickr.com/bobby/",
-//     "author_icon": "http://flickr.com/icons/bobby.jpg",
-//     "title": "Slack API Documentation",
-//     "title_link": "https://api.slack.com/",
-//     "text": "Optional text that appears within the attachment",
-//     "fields": [
-//         {
-//             "title": "Priority",
-//             "value": "High",
-//             "short": false
-//         }
-//     ],
-//     "image_url": "http://my-website.com/path/to/image.jpg",
-//     "thumb_url": "http://example.com/path/to/thumb.png"
-// }

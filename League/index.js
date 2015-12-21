@@ -1,3 +1,5 @@
+
+
 exports.saybot = (req, res) => {
 
 
@@ -18,7 +20,7 @@ exports.saybot = (req, res) => {
                 "region": 'na',
                 "champData": ['image', 'passive', 'spells', 'partype']
             },
-            "name": command[1][0].toUpperCase() + command[1].slice(1).toLowerCase(),
+            "name": command[1]
             "skin": '0',
             "version": '5.23.1'
         }
