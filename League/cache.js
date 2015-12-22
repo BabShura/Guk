@@ -1,5 +1,5 @@
 module.exports = (api)=>{
-    items: (api)=>{
+    items= (api)=>{
         this.cache = {}
         var that = this;
 
@@ -15,7 +15,7 @@ module.exports = (api)=>{
 
     },
 
-    champs: (api)=>{
+    champs= (api)=>{
         this.cache = {}
         var that = this;
 
@@ -29,6 +29,5 @@ module.exports = (api)=>{
             that.cache = res;
         })
 
-    },
-
+    }
 }

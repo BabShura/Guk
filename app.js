@@ -23,7 +23,6 @@ var lolApi = new lolAPI({
     region: 'na'
 })
 
-
 //Load RIOT data on boot.
 var loadCache = require('./League/cache')(lolApi);
 

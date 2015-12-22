@@ -1,10 +1,10 @@
 var API = require('lol-riot-api-module');
 
-exports.champ = (specs,champCache, res)=>{
+exports.champ = (specifiers,champCache, res)=>{
 
-    console.log(specs);
+    console.log(specifiers);
 
-        champ = champCache[].data[specs.name]
+        champ = champCache[specifiers].data[specificers.name]
         console.log("FOUND", champ);
         // CHAMP IMAGES TO USE FOR SLACK
         champ.image.links = {
