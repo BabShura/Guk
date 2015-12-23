@@ -29,7 +29,7 @@ var loadCache = require('./League/cache')(lolApi);
 console.log(JSON.stringify(loadCache.cache))
 
 
-app.use('/', require('./routes/'));
+//app.use('/', require('./routes/'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
