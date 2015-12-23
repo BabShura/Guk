@@ -1,34 +1,19 @@
-    exports.items= (api)=>{
-        this.cache = {}
-        var that = this;
+module.exports = (api)=>{
+    this.cache = {}
+    var that = this;
 
-        opt = {
-            locale: "en_US",
-            itemListData: ["all"],
-            region: "na"
-        }
-
-        api.getItemData(opt).then((res)=>{
-            that.cache = res;
-        })
-        return this.cache
-
+    opt = {
+        locale: "en_US",
+        itemListData: ["all"],
+        region: "na"
     }
 
-    exports.champs= (api)=>{
-        this.cache = {}
-        var that = this;
+    api.getItemData(opt).then((res)=>{
+        that.cache.items = res;
+    })
+    api.getChampionData(opt).then((res)=>{
+        that.cache.champs = res;
+    })
 
-        opt = {
-            locale: "en_US",
-            itemListData: ["all"],
-            region: "na"
-        }
-
-        api.getChampionData(opt).then((res)=>{
-            that.cache = res;
-        })
-
-        return this.cache
-
-    }
+    return this.cache
+}

@@ -26,7 +26,7 @@ var lolApi = new lolAPI({
 //Load RIOT data on boot.
 var loadCache = require('./League/cache')(lolApi);
 
-console.log(JSON.stringify(loadCache.champs))
+console.log(JSON.stringify(loadCache.cache))
 
 
 app.use('/', require('./routes/'));
