@@ -1,5 +1,4 @@
-module.exports = (api)=>{
-    items= (api)=>{
+    exports.items= (api)=>{
         this.cache = {}
         var that = this;
 
@@ -12,10 +11,11 @@ module.exports = (api)=>{
         api.getItemData(opt).then((res)=>{
             that.cache = res;
         })
+        return this.cache
 
-    },
+    }
 
-    champs= (api)=>{
+    exports.champs= (api)=>{
         this.cache = {}
         var that = this;
 
@@ -28,6 +28,8 @@ module.exports = (api)=>{
         api.getChampionData(opt).then((res)=>{
             that.cache = res;
         })
+
+        return this.cache
 
     }
 }
