@@ -15,5 +15,7 @@ module.exports = function(api){
         that.cache.champs = res;
     })
 
+    console.log(this.cache);
+
     return this.cache
 }
