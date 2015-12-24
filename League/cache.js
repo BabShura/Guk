@@ -1,4 +1,4 @@
-
+function(api){
     this.cache = {items:{}, champs:{}}
     var that = this;
 
@@ -18,3 +18,4 @@
     setTimeout(()=>{
         module.exports = this.cache;
     })
+}
