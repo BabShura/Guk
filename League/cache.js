@@ -10,15 +10,13 @@ module.exports = (app, api)=>{
 
     api.getItemData(opt, (err, res)=>{
         that.cache.items = res;
-        console.log("CACHE item", JSON.stringify(that.cache))
     })
     api.getChampionData(opt, (err, res)=>{
         that.cache.champs = res;
-        console.log("CACHE champ", JSON.stringify(that.cache))
     })
 
     setTimeout(()=>{
-        console.log("CACHE", JSON.stringify(that.cache))
+        console.log("CACHE", that.cache.champs.Aatrox.tags)
         app.set("cache", that.cache)
     })
 }
