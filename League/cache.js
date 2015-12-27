@@ -16,7 +16,7 @@ module.exports = (app, api)=>{
     })
 
     setTimeout(()=>{
-        console.log("CACHE", that.cache.champs.data.Aatrox.tags)
-        app.set("cache", that.cache)
+        console.log("CACHE", that.cache.champs.keys)
+        app.set("cache", JSON.stringify(that.cache))
     })
 }
