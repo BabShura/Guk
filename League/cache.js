@@ -8,14 +8,15 @@ module.exports = (app, api)=>{
         region: "na"
     }
 
-    api.getItemData(opt).then((res)=>{
+    api.getItemData(opt, (err, res)=>{
         that.cache.items = res;
     })
-    api.getChampionData(opt).then((res)=>{
+    api.getChampionData(opt, (err, res)=>{
         that.cache.champs = res;
     })
 
     setTimeout(()=>{
+        console.log("CACHE", JSON.strigify(that.cache))
         app.set("cache", that.cache)
     })
 }
