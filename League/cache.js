@@ -18,5 +18,5 @@ module.exports = (app, api)=>{
     setTimeout((data)=>{
         console.log("CACHE", JSON.stringify(data))
         app.set("cache", data)
-    }, this.cache)
+    },2000,  this.cache)
 }
