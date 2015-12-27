@@ -1,5 +1,3 @@
-var API = require('lol-riot-api-module');
-
 exports.champ = (specifiers, res)=>{
 
         champ = app.get("cache").champs.data[specifiers.name]

@@ -53,7 +53,7 @@ exports.champ = (specifiers, res)=>{
                     "fields": [{
                         "title": "Q: " + champ.spells[0].name,
                         "value": champ.spells[0].description +
-                        "\nBase DMG: " + champ.spells[0].effectBurn[1] +
+                        //"\nBase DMG: " + champ.spells[0].effectBurn[1] +
                         "\nCD/lvl: " + champ.spells[0].cooldownBurn
                         ,
                         "short": true
