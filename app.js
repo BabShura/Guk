@@ -31,6 +31,6 @@ setTimeout(()=>{
     app.use( '/', require('./routes/') )
 
     require('./errorHandler')(app)
-} )
+}, 5000)
 
 module.exports = app;
