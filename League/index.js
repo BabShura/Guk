@@ -20,7 +20,7 @@ exports.saybot = (req, res) => {
                 "region": 'na',
                 "champData": ['image', 'passive', 'spells', 'partype']
             },
-            "name": command[1]
+            "name": command[1],
             "skin": '0',
             "version": '5.23.1'
         }
