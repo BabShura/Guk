@@ -1,3 +1,5 @@
+var app = require('express').express();
+
 exports.champ = (specifiers, res)=>{
     this.res = res;
 
