@@ -1,4 +1,4 @@
-module.exports = (api)=>{
+module.exports = (app, api)=>{
     this.cache = {items:{}, champs:{}}
     var that = this;
 

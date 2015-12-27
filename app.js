@@ -24,7 +24,7 @@ var lolApi = new lolAPI({
 })
 
 //Load RIOT data on boot.
-require('./League/cache')(lolApi);
+require('./League/cache')(app, lolApi);
 
 app.use('/', require('./routes/'));
 
