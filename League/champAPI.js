@@ -1,4 +1,4 @@
-var app = require('express').express();
+var app = require('express')();
 
 exports.champ = (specifiers, res)=>{
     this.res = res;
