@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var lolApi = newlolAPI({
+var lolApi = new lolAPI({
     key: process.env.RIOT_API_KEY,
     region: 'na'
 })
