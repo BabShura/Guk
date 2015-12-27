@@ -15,8 +15,8 @@ module.exports = (app, api)=>{
         that.cache.champs = res;
     })
 
-    setTimeout((data)=>{
-        console.log("CACHE", JSON.stringify(data.champs.keys))
+    setTimeout(()=>{
+        console.log("CACHE", JSON.stringify(that.cache.champs.keys))
         app.set("cache", data)
-    }, 2000 ,  that.cache)
+    }, 2000)
 }
