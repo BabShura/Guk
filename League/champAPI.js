@@ -1,9 +1,6 @@
 var app = require('express')();
 
 exports.champ = (specifiers, res)=>{
-    this.res = res;
-
-    var that = this;
 
     champ = app.get("cache").champs.data[specifiers.name]
     console.log("FOUND", champ);
@@ -84,7 +81,7 @@ exports.champ = (specifiers, res)=>{
         "mrkdwn": true
     }
 
-    setTimeout(function(){
-        that.res.json(saybot)
-    })
+    setTimeout((res)=>{
+        res.json(saybot)
+    }, res)
 }
