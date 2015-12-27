@@ -26,7 +26,8 @@ var lolApi = new lolAPI({
 //Load RIOT data on boot.
 require('./League/cache')(app, lolApi);
 
-app.use('/', require('./routes/'));
+//Load routes
+setTimeout(app.use, '/', require('./routes/') )
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
