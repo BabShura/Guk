@@ -18,18 +18,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var lolApi = new lolAPI({
+var lolApi = newlolAPI({
     key: process.env.RIOT_API_KEY,
     region: 'na'
 })
 
 //Load RIOT data on boot.
-var loadCache = require('./League/cache')(lolApi);
+require('./League/cache')(lolApi);
 
-console.log(JSON.stringify(loadCache.cache))
-
-
-//app.use('/', require('./routes/'));
+app.use('/', require('./routes/'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

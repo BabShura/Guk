@@ -16,7 +16,6 @@ function(api){
     })
 
     setTimeout(()=>{
-        console.log(this.cache);
-        module.exports = this.cache;
+        app.set("cache", that.cache)
     })
 }
