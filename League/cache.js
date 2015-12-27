@@ -10,9 +10,11 @@ module.exports = (app, api)=>{
 
     api.getItemData(opt, (err, res)=>{
         that.cache.items = res;
+        console.log("CACHE item", JSON.stringify(that.cache))
     })
     api.getChampionData(opt, (err, res)=>{
         that.cache.champs = res;
+        console.log("CACHE champ", JSON.stringify(that.cache))
     })
 
     setTimeout(()=>{
