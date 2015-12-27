@@ -29,7 +29,7 @@ require('./League/cache')(app, lolApi);
 //Load routes
 setTimeout(()=>{
     app.use( '/', require('./routes/') )
-}, )
+} )
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
