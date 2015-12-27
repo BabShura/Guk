@@ -30,7 +30,7 @@ require('./League/cache')(app, lolApi);
 setTimeout(()=>{
     app.use( '/', require('./routes/') )
 
-    require('./errorHandler')
+    require('./errorHandler')(app)
 } )
 
 module.exports = app;
