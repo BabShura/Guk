@@ -6,12 +6,7 @@ exports.saybot = (req, res) => {
     trigger = req.body.trigger_word;
     query = req.body.text;
     command = query.replace(trigger ,'').trim().split(' '); //condense the call to an array of strings
-    console.log(command);
-
-    var api = {
-        key: process.env.RIOT_API_KEY,
-        region: 'na'
-    }
+    console.log("Call", command);
 
     if(command[0].toLowerCase() === "champion" || command[0].toLowerCase() === "champ"){
         var specifiers = {
@@ -24,10 +19,10 @@ exports.saybot = (req, res) => {
             "skin": '0',
             "version": '5.23.1'
         }
-        //setTimeout( (specifiers, res)=>{
+        setTimeout( (specifiers, res)=>{
             //require('./champAPI').champ(specifiers, res);
             require('./champ').champ(specifiers, res);
-        //})
+        })
     }
     else if (command[0].toLowerCase() === "monster") {
         console.log("API MONSTERS")
