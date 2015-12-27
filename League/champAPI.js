@@ -5,7 +5,7 @@ exports.champ = (specifiers, res)=>{
 
     var that = this;
 
-    champ = app.get("cache").champs.data[specifiers.name]
+    champ = app.get("cache").data[specifiers.name]
     console.log("FOUND", champ);
     // CHAMP IMAGES TO USE FOR SLACK
     champ.image.links = {
