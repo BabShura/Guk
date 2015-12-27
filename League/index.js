@@ -20,8 +20,8 @@ exports.saybot = (req, res) => {
             "version": '5.23.1'
         }
         setTimeout( (specifiers, res)=>{
-            //require('./champAPI').champ(specifiers, res);
-            require('./champ').champ(specifiers, res);
+            require('./champAPI').champ(specifiers, res);
+            // require('./champ').champ(specifiers, res);
         })
     }
     else if (command[0].toLowerCase() === "monster") {
