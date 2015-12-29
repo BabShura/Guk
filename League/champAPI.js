@@ -1,9 +1,9 @@
 var app = require('express')();
 
-exports.champ = (specifiers, res)=>{
+exports.champ = (specifiers, res){
 
     champ = app.get("cache").champs.data[specifiers.name]
-    console.log("FOUND", champ);
+    console.log("FOUND ", champ.name);
     // CHAMP IMAGES TO USE FOR SLACK
     champ.image.links = {
         "load" : "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champ.name + "_" + skin + ".jpg",
@@ -81,7 +81,5 @@ exports.champ = (specifiers, res)=>{
         "mrkdwn": true
     }
 
-    setTimeout((res)=>{
-        res.json(saybot)
-    }, res)
+    res.JSON(saybot)
 }

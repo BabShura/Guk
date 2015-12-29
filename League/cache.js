@@ -1,4 +1,8 @@
-module.exports = (app, api)=>{
+setCache = (data, app)=>{
+    app.set("cache", data)
+}
+
+module.exports = (app, api, setCache)=>{
     this.cache = {items:{}, champs:{}}
     var that = this;
 
@@ -15,8 +19,5 @@ module.exports = (app, api)=>{
         that.cache.champs = res;
     })
 
-    setTimeout(()=>{
-        console.log("CACHE", JSON.stringify(that.cache.champs.keys))
-        app.set("cache", data)
-    }, 2000)
+    setCache(this.cache, app)
 }

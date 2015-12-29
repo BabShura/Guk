@@ -1,6 +1,6 @@
 
 
-exports.saybot = (req, res) => {
+exports.saybot = (req, res, cache) => {
 
 
     trigger = req.body.trigger_word;
@@ -19,10 +19,8 @@ exports.saybot = (req, res) => {
             "skin": '0',
             "version": '5.23.1'
         }
-        setTimeout( (specifiers, res)=>{
-            require('./champAPI').champ(specifiers, res);
-            // require('./champ').champ(specifiers, res);
-        })
+        require('./champAPI').champ(specifiers, res)
+        // require('./champ').champ(specifiers, res);
     }
     else if (command[0].toLowerCase() === "monster") {
         console.log("API MONSTERS")

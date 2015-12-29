@@ -26,11 +26,9 @@ var lolApi = new lolAPI({
 //Load RIOT data on boot.
 require('./League/cache')(app, lolApi);
 
-//Load routes
-setTimeout(()=>{
-    app.use( '/', require('./routes/') )
+//Load routes wth cache data.
+app.use('/', require('./routes/')
 
-    require('./errorHandler')(app)
-}, 5000)
+require('./errorHandler')
 
 module.exports = app;
