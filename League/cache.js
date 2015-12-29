@@ -1,4 +1,4 @@
-setCache = function(data, app){
+var setCache = (data, app)=>{
     app.set("cache", data)
 }
 
