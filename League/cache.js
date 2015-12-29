@@ -8,7 +8,7 @@ module.exports = (app, api)=>{
 
     api.getItemData(opt, (err, items)=>{
          app.set("cacheItems", items)
-         console.log("Log keys " app.get("cacheItems").keys);
+         console.log("Log keys ", app.get("cacheItems").keys);
     })
     api.getChampionData(opt, (err, champs)=>{
         app.set("cacheChamps", champs)
