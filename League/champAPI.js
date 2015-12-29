@@ -2,7 +2,7 @@ var app = require('express')();
 
 exports.champ = (specifiers, res){
 
-    champ = app.get("cache").champs.data[specifiers.name]
+    champ = app.get("cacheChamps").data[specifiers.name]
     console.log("FOUND ", champ.name);
     // CHAMP IMAGES TO USE FOR SLACK
     champ.image.links = {

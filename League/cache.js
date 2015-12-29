@@ -1,10 +1,4 @@
-var setCache = (data, app)=>{
-    app.set("cache", data)
-}
-
-module.exports = (app, api, setCache)=>{
-    this.cache = {items:{}, champs:{}}
-    var that = this;
+module.exports = (app, api)=>{
 
     opt = {
         locale: "en_US",
@@ -12,12 +6,10 @@ module.exports = (app, api, setCache)=>{
         region: "na"
     }
 
-    api.getItemData(opt, (err, res)=>{
-        that.cache.items = res;
+    api.getItemData(opt, (err, items)=>{
+         app.set("cacheItems", items)
     })
-    api.getChampionData(opt, (err, res)=>{
-        that.cache.champs = res;
+    api.getChampionData(opt, (err, champs)=>{
+        app.set("cacheChamps", champs)
     })
-
-    setCache(this.cache, app)
 }
