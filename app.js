@@ -27,7 +27,7 @@ var lolApi = new lolAPI({
 require('./League/cache')(app, lolApi);
 
 //Load routes wth cache data.
-app.use('/', require('./routes/')
+app.use('/', require('./routes/'))
 
 require('./errorHandler')
 
