@@ -1,6 +1,6 @@
 var app = require('express')();
 
-exports.champ = (specifiers, res){
+exports.champ = (specifiers, res)=>{
 
     champ = app.get("cacheChamps").data[specifiers.name]
     console.log("FOUND ", champ.name);
