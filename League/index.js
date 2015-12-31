@@ -1,4 +1,4 @@
-exports.cache = require('cache');
+exports.cache = require('./cache');
 
 exports.saybot = (req, res, cache) => {
 
