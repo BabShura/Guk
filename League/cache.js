@@ -1,4 +1,4 @@
-module.exports = (app, api)=>{
+module.exports = (api)=>{
 
     opt = {
         locale: "en_US",

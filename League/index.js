@@ -1,4 +1,4 @@
-
+exports.cache = require('cache')(api);
 
 exports.saybot = (req, res, cache) => {
 
