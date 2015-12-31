@@ -1,4 +1,4 @@
-var express = require('express')(lolAPI);
+var express = require('express');
 var router = express.Router();
 
 var League = require('../League');
